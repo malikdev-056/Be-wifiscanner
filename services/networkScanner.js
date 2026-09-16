@@ -46,7 +46,10 @@ async function scanNetwork() {
       { timeout: 30000, maxBuffer: 1024 * 1024 * 5 },
       (error, stdout, stderr) => {
         if (error) {
-          reject(new Error(stderr.trim() || error.message));
+          const scanError = new Error(stderr.trim() || error.message);
+          scanError.publicMessage = 'Nmap could not scan this network from the deployed server. Run the backend on a machine connected to the target Wi-Fi network.';
+          scanError.statusCode = 503;
+          reject(scanError);
           return;
         }
         resolve(stdout);

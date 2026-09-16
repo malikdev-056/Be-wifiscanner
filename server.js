@@ -10,6 +10,13 @@ const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    service: 'Wi-Fi Scanner backend',
+    status: 'running'
+  });
+});
 app.use('/api/network', networkRoutes);
 app.use('/api/ai', aiRoutes);
 
