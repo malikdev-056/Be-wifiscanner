@@ -1,0 +1,17 @@
+{
+  "name": "wifi-scanner-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Wi-Fi Scanner AI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "openai": "^4.104.0",
+    "xml2js": "^0.6.2"
+  }
+}
